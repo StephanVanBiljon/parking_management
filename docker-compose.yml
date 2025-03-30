@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: parking_management/Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8000"
+#    environment:
+#      - DEBUG=1
+#      - SECRET_KEY=your_dev_secret_key
