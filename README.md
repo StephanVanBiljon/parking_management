@@ -42,6 +42,8 @@ docker-compose up --build
 
 ## API Endpoints
 
+The `base_url` variable when running this application locally is: `http://127.0.0.1:8080`
+
 ### Authentication
 - `POST {base_url}/register/` - Register a new client
 - `POST {base_url}/login/` - Login and receive an authentication token
