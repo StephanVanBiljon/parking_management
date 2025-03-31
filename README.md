@@ -13,13 +13,14 @@ A backend for managing parking access for employees of clients.
 
 ## Requirements
 
-- Docker and Docker Compose
+- Docker, Docker Compose,
+- Optional: Postman
 
 ## Getting Started
 
 1. Clone the repository:
 ```
-git clone git@github.com:username/parking_management.git
+git clone git@github.com:{username}/parking_management.git
 ```
 
 2. Navigate to the cloned project repository:
@@ -42,13 +43,13 @@ docker-compose up --build
 ## API Endpoints
 
 ### Authentication
-- `POST {{base_url}}/register/` - Register a new client
-- `POST {{base_url}}/login/` - Login and receive an authentication token
+- `POST {base_url}/register/` - Register a new client
+- `POST {base_url}/login/` - Login and receive an authentication token
 
 ### Parking Users
-- `GET {{base_url}}/parking-users/` - List all parking users for the authenticated client
-- `POST {{base_url}}/parking-users/bulk_import/` - Import multiple parking users from a CSV/Excel file
-- `DELETE {{base_url}}/parking-users/{id}/` - Delete a parking user
+- `GET {base_url}/parking-users/` - List all parking users for the authenticated client
+- `POST {base_url}/parking-users/bulk_import/` - Import multiple parking users from a CSV/Excel file
+- `DELETE {base_url}/parking-users/{id}/` - Delete a parking user
 
 ### Try It Out With A Postman Pack!
 Download and import the following
@@ -59,7 +60,7 @@ To use the system after deployment:
 
 1. Register a new client (parking facility manager):
 ```
-POST {{base_url}}/register/
+POST {base_url}/register/
 {
   "username": "riverlands",
   "password": "password123",
@@ -70,36 +71,36 @@ POST {{base_url}}/register/
 
 2. Login to get an auth token:
 ```
-POST {{base_url}}/login/
+POST {base_url}/login/
 {
   "username": "riverlands",
   "password": "password123"
 }
 ```
 
-3. Use the token for subsequent requests to `GET {{base_url}}/parking-users/`,
-`POST {{base_url}}/parking-users/bulk_import/` and
-`DELETE {{base_url}}/parking-users/{id}/` by setting the "Authorization" header:
+3. Use the token for subsequent requests to `GET {base_url}/parking-users/`,
+`POST {base_url}/parking-users/bulk_import/` and
+`DELETE {base_url}/parking-users/{id}/` by setting the "Authorization" header:
 ```
-Authorization: Token {{auth_token}}
+Authorization: Token {auth_token}
 ```
 
 4. Import parking users from a file:
 
 ```
-POST {{base_url}}/parking-users/bulk_import/
+POST {base_url}/parking-users/bulk_import/
 Content-Type: form-data
 file: [your_file.csv or your_file.xlsx]
 ```
 
 5. List all parking users for the authenticated client:
 ```
-GET {{base_url}}/parking-users/
+GET {base_url}/parking-users/
 ```
 
 6. Delete a parking user for the authenticated client:
 ```
-DELETE {{base_url}}/parking-users/{{user_id}}/
+DELETE {base_url}/parking-users/{user_id}/
 ```
 
 ## File Format for Bulk Import
